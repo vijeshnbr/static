@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Omidays</title>
+	<style type="text/css">
+		html, body, #mainContent {
+			height: 100%;
+		}
+		#mainContent {
+			background-color: black;
+			font-size: 18px;
+            font-family: 'Arial Narrow', sans-serif;
+			text-align: center;
+			padding: 30px;
+		}
+        #crown {
+            font-family: Courier New, Courier, monospace;
+        }
+		.gold {
+			color: #FFD700;
+		}
+		.blue {
+			color: blue;
+		}
+        .brown {
+			color: brown;
+		}
+		.green {
+			color: green;
+		}
+		.orange {
+			color: orange;
+		}
+		.red {
+			color: red;
+		}
+		.yellow {
+			color: yellow;
+		}
+		.light-green {
+			color: lightgreen;
+		}
+        p {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            line-height: 1.0;
+        }
+        .marginTop {
+            margin-top: 20px;
+        }
+	</style>
+</head>
+<body>
+    <div id="mainContent">
+        <div id="tree">
+            <div id="crown" class="gold">
+                <p>|</p>
+                <p>\|/</p>
+                <p>--*--</p>
+            </div>
+            <div id="tree-body" class="green"></div>
+            <div id="tree-stem" class="brown"></div>
+        </div>
+        <div id="message" class="light-green">
+            <p class="marginTop">Happy Holidays Omi</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    
+    class Div {       
+        constructor(divId, document) {
+            this.divId = divId;
+            this.document = document;
+        }
+        addPara() {
+            let newPara = this.document.createElement('p');
+            let thisDivElement = this.document.getElementById(this.divId);
+            thisDivElement.appendChild(newPara);
+            return new Para(newPara, this.document);
+        }      
+    }
+
+    class Para {
+        constructor(pElement, document) {
+            this.pElement = pElement;
+            this.document = document;
+        }
+        addSpan(text, style=false) {
+                    let newSpan = this.document.createElement('span');
+                    if(style)
+                        newSpan.classList.add(style);
+                    newSpan.innerText = text;
+                    this.pElement.appendChild(newSpan);
+                    return this;
+        }
+    }
+
+    var treeBody = new Div('tree-body', document);
+    var treeStem = new Div('tree-stem', document);
+
+    //1
+    treeBody.addPara()
+                .addSpan('>')
+                .addSpan('o', 'orange')
+                .addSpan('<');
+
+    //2
+    treeBody.addPara()
+                .addSpan('>')
+                .addSpan('0', 'blue')
+                .addSpan('<<<');
+
+    //3
+    treeBody.addPara()
+                .addSpan('>>')
+                .addSpan('o', 'orange')
+                .addSpan('>>')
+                .addSpan('*', 'gold')
+                .addSpan('<');
+
+    //4
+    treeBody.addPara()
+                .addSpan('>')
+                .addSpan('o', 'orange')
+                .addSpan('<<<')
+                .addSpan('o', 'orange')
+                .addSpan('<<<');
+
+    //5
+    treeBody.addPara()
+                .addSpan('>>')
+                .addSpan('@', 'red')
+                .addSpan('>')
+                .addSpan('*', 'gold')
+                .addSpan('<<')
+                .addSpan('0', 'blue')
+                .addSpan('<<<');
+
+    //6
+    treeBody.addPara()
+                .addSpan('>')
+                .addSpan('o', 'orange')
+                .addSpan('>>')
+                .addSpan('@', 'red')
+                .addSpan('>>>')
+                .addSpan('o', 'orange')
+                .addSpan('>')
+                .addSpan('o', 'orange')
+                .addSpan('<<');
+
+    //7
+    treeBody.addPara()
+                .addSpan('>')
+                .addSpan('*', 'gold')
+                .addSpan('>>')
+                .addSpan('*', 'gold')
+                .addSpan('<')
+                .addSpan('o', 'orange')
+                .addSpan('<')
+                .addSpan('@', 'red')
+                .addSpan('<')
+                .addSpan('o', 'orange')
+                .addSpan('<<<<');
+
+    //8
+    treeBody.addPara()
+                .addSpan('>')
+                .addSpan('o', 'orange')
+                .addSpan('>')
+                .addSpan('o', 'orange')
+                .addSpan('<<<')
+                .addSpan('0', 'blue')
+                .addSpan('<')
+                .addSpan('*', 'gold')
+                .addSpan('>>')
+                .addSpan('*', 'gold')
+                .addSpan('>>')
+                .addSpan('0', 'blue')
+                .addSpan('<');
+
+    treeStem.addPara()
+                .addSpan('_ __ | | __ _');
+</script>
+</html>
